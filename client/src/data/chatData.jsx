@@ -1,11 +1,11 @@
 
 export const chatData=[
     {
-        chat:"hii",
+        chat:"Hii",
         type:"Question"
     },
     {
-        chat:"hello",
+        chat:"Hello",
         type:"Answer"
     },
     {

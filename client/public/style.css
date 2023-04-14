@@ -200,3 +200,24 @@ textarea {
     margin-right: 60%;
     border-radius: 50px;
   }
+
+  .home{
+    /* background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAHlBMVEVChfQ0qFPqQzX7vAUrif7zPRTpNTf8wwD/vQAPpleR1yqTAAABA0lEQVR4nO3QNwEAMAADoO7h33BN5OgBEiglZsyWsnZPObfG5K5kyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyZIlS5YsWbJkyfoq6wFngTnAYsw/XAAAAABJRU5ErkJggg=="); */
+    padding: 30px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    align-items: center;
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .health {
+    color: red;
+  }
+  
+  .health-p {
+    color: darkgreen;
+  }
