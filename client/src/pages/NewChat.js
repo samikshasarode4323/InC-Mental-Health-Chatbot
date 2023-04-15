@@ -4,7 +4,7 @@ function NewChat() {
     return (
         <div className="newchat">
             <div>
-                <b><h1 align="center">New Chat</h1></b>
+                <b><h1 align="center" className="newchat-h1">New Chat</h1></b>
                 <br></br>
                 
             </div>
@@ -23,7 +23,7 @@ function NewChat() {
                     <textarea placeholder="Ask.." rows={"3"}></textarea>
                     <br></br>
                     <br></br>
-                    <input type="button" value="submit"  className="btn btn-primary" />
+                    <input type="button" value="Submit"  className="btn btn-primary" />
                 </div>
         </div>
     )
