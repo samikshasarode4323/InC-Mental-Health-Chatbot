@@ -5,9 +5,10 @@ import {Link} from "react-router-dom";
 import {SidebarData,loggedInData} from "../data/SidebarData";
 import {IconContext} from "react-icons";
 
+export var loggedin;
 function Navbar () {
     const [sidebar, setSidebar] = useState(false);
-    const loggedin=false;
+    loggedin=true;
     const showSidebar = () => setSidebar(!sidebar);
     return (
         <div>

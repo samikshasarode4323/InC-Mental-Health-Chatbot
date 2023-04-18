@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import NewChat from "./pages/NewChat";
 import Login from "./pages/Login";
 import ChatHistory from "./pages/ChatHistory";
+import Logout from "./pages/Logout";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/newchat' element={<NewChat />} /> 
         <Route path='/login' element={<Login />} />
         <Route path='/chathistory' element={<ChatHistory />} />
+        <Route path='/logout' element={<Logout />} />
       </Routes>
     </BrowserRouter>
   );
