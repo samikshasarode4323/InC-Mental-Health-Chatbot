@@ -1,5 +1,7 @@
 import React,{useState} from "react";
 import {loginData} from "../data/loginData";
+import {Link} from "react-router-dom";
+
 function Login() {
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -61,7 +63,9 @@ function Login() {
         <div className="app">
           <div className="login-form">
             <div className="title">Login</div>
-            {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+            {isSubmitted ? <Link to={"/newchat"}> <div className="button-container">
+              <input type="submit" />
+            </div> </Link> : renderForm}
           </div>
         </div>
       );
