@@ -3,7 +3,8 @@ import { chatData } from "../data/chatData";
 function NewChat() {
     const [question, setQuestion] = useState("");
     const handleQuestion = () => {
-        setQuestion();
+        console.log(question);
+        setQuestion("");
     }
     return (
         <div className="newchat">
@@ -13,7 +14,6 @@ function NewChat() {
                 
             </div>
             {chatData.map((res)=>{
-                console.log(res.chat)
                 if(res.type==="Answer"){
                     return(
                     <Answer chat={res.chat} />)
@@ -24,10 +24,10 @@ function NewChat() {
                 }
             })}
             <div className="Input">
-                    <textarea placeholder="Ask.." rows={"3"}></textarea>
+                    <textarea placeholder="Ask.." rows={"3"} value={question} onChange={(e) => setQuestion(e.target.value)}></textarea>
                     <br></br>
                     <br></br>
-                    <input type="button" value="Submit"  className="btn btn-primary" />
+                    <input type="button" value="Submit" onClick={handleQuestion} className="btn btn-primary" />
                 </div>
         </div>
     )
