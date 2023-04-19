@@ -1,18 +1,22 @@
 import React, {useState} from "react";
+import {createContext, useReducer} from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from "./components/Navbar";
-import NavbarLoggedOut from "./components/NavbarLoggedOut";
 import Home from "./pages/Home";
 import NewChat from "./pages/NewChat";
 import Login from "./pages/Login";
 import ChatHistory from "./pages/ChatHistory";
 import Logout from "./pages/Logout";
+import {initialState, reducer} from "../src/reducer/UseReducer";
 
+export const UserContext = createContext();
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [state, dispatch] = useReducer(reducer,initialState);
   return (
+    <>
+    <UserContext.Provider value={{state, dispatch}}>
     <BrowserRouter>
-    {isLoggedIn ? <Navbar /> : <NavbarLoggedOut />}
+    <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/newchat' element={<NewChat />} /> 
@@ -21,6 +25,8 @@ function App() {
         <Route path='/logout' element={<Logout />} />
       </Routes>
     </BrowserRouter>
+    </UserContext.Provider>
+    </>
   );
 }
 

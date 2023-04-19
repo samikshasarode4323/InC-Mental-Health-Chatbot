@@ -1,14 +1,12 @@
-import React,{useState} from "react";
+import React,{useState, useContext} from "react";
 import {loginData} from "../data/loginData";
 import {Link, useNavigate} from "react-router-dom";
+import {UserContext} from "../App";
 
 function Login() {
+    const {state, dispatch} = useContext(UserContext);
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const handleLogin = () => {
-      setIsLoggedIn(true);
-    }
   
     const navigate = useNavigate();
     const errors = {
@@ -30,6 +28,7 @@ function Login() {
             // Invalid password
             setErrorMessages({ name: "pass", message: errors.pass });
           } else {
+            dispatch({type:"USER", payload:true})
             setIsSubmitted(true);
             navigate("/newchat");
           }
@@ -60,7 +59,7 @@ function Login() {
               {renderErrorMessage("pass")}
             </div>
             <div className="button-container">
-              <input type="submit" onClick={handleLogin} />
+              <input type="submit" />
             </div>
           </form>
         </div>
