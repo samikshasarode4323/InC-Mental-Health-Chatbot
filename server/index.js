@@ -1,7 +1,8 @@
-require('dotenv').config()
+require('dotenv').config({ path: 'server\.env' })
 const express = require('express')
 const bodyParser = require('body-parser') 
 const mongoose = require('mongoose')
+const cors=require('cors')
 
 const app = express()
 const port = 5000
@@ -9,6 +10,7 @@ const port = 5000
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json())
+app.use(cors());
 
 const chatRouter=require('./routes/chatRoutes')
 

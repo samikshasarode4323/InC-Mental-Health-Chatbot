@@ -1,9 +1,17 @@
 import React, {useState} from "react";
-import { chatData } from "../data/chatData";
+import axios from "axios"
+
 function NewChat() {
     const [question, setQuestion] = useState("");
+    const [data, setData] = useState([]);
+
     const handleQuestion = () => {
-        console.log(question);
+
+        axios.post("http://localhost:5000/chat/new",{
+            question:question
+        }).
+        then(newData => axios.get("http://localhost:5000/chat/"+newData.data._id).then((res)=>console.log(res.data)));
+        console.log(data)
         setQuestion("");
     }
     return (
@@ -13,15 +21,12 @@ function NewChat() {
                 <br></br>
                 
             </div>
-            {chatData.map((res)=>{
-                if(res.type==="Answer"){
-                    return(
-                    <Answer chat={res.chat} />)
-                }else{
-                    return(
-                    <Question chat={res.chat} />
-                    )
-                }
+            {data.map((res)=>{
+                return(
+                    <div>
+                    <Answer chat={res.question} />
+                    <Question chat={res.answer} />
+                    </div>)
             })}
             <div className="Input">
                     <textarea placeholder="Ask.." rows={"3"} value={question} onChange={(e) => setQuestion(e.target.value)}></textarea>
