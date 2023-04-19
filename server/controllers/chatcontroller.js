@@ -17,16 +17,16 @@ let prompt = "The following is a conversation with a psychatrist. \n"
 exports.askQuestion = async (req, res) => {
   try {
 
-    function chatToString(id){
-      const cht1 = chat.findById(id)
-      cht1.chat.map((item) => {
+    function chatToString(arr){
+      arr.map((item) => {
         prompt += "\nHuman:" + item.question + "\npshycatrist:" + item.answer;
       });
     }
 
     const { question } = req.body;
     console.log(req.params.id)
-    chatToString(req.params.id)
+    const cht1=await chat.findById(req.params.id)
+    chatToString(cht1.chat)
     console.log(`${prompt} \nHuman: ${question}\npsychatrist: `)
     const response = await openai.createCompletion({
       model: "text-davinci-003",
@@ -38,9 +38,14 @@ exports.askQuestion = async (req, res) => {
       presence_penalty: 0.0,
       stop: ["\n"],
     });
+    cht1.chat.push({
+      question:req.body.question,
+      answer:response.data.choices[0].text
+    })
+    cht1.save()
     console.log(response.data.choices[0].text)
     
-    return res.status(200).json(newChat);
+    return res.status(200).json(cht1);
   } catch (error) {
     return res.status(400).send(error.message);
   }
