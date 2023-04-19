@@ -15,7 +15,7 @@ const chatRouter=require('./routes/chatRoutes')
 app.get('/', (req, res) => res.send('Hello World!'))
 app.use('/chat',chatRouter)
 
-mongoose.connect("mongodb+srv://Varad:Varad@cluster0.36hlagn.mongodb.net/test", { useNewUrlParser: true, useUnifiedTopology: true }) 
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }) 
     .catch(err => { console.log(err) })
     .then(console.log("DB connected"));
 

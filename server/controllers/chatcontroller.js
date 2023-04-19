@@ -6,7 +6,7 @@ const bodyParser=require('body-parser')
 const chat = require('../model/chatModel')
 
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: process.env.API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
