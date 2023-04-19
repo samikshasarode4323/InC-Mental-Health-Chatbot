@@ -7,5 +7,5 @@ const chatSchema=mongoose.Schema({
     },
     chat:[]  // array of question and answer
 })
-
-module.exports=chatSchema
+const chat=mongoose.model("chats",chatSchema)
+module.exports=chat
