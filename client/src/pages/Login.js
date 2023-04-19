@@ -5,6 +5,11 @@ import {Link, useNavigate} from "react-router-dom";
 function Login() {
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const handleLogin = () => {
+      setIsLoggedIn(true);
+    }
+  
     const navigate = useNavigate();
     const errors = {
         uname: "Invalid Username",
@@ -55,7 +60,7 @@ function Login() {
               {renderErrorMessage("pass")}
             </div>
             <div className="button-container">
-              <input type="submit" />
+              <input type="submit" onClick={handleLogin} />
             </div>
           </form>
         </div>

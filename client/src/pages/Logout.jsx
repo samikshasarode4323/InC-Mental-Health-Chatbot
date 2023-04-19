@@ -4,11 +4,8 @@ import {useNavigate} from "react-router-dom";
 
 function Logout() {
     const navigate = useNavigate();
-    return (
-        <div>
-            {loggedin ? navigate("/") : navigate("/newchat")}
-        </div>
-    )
+    loggedin=false;
+    navigate("/");
 }
 
 export default Logout;
