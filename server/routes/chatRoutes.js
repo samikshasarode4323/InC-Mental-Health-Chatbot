@@ -1,12 +1,16 @@
 const express=require('express')
 
-const {askQuestion}=require("../controllers/chatcontroller")
+const {askQuestion , getChatHistory , getChat , askFirstQuestion}=require("../controllers/chatcontroller")
 const router=express.Router();
 
-router.get("/")
+router.get("/",getChatHistory);
 
-router.get("/:id")
+router.get("/:id",getChat);
 
-router.post('/', askQuestion)
+router.post("/new",askFirstQuestion);
+
+router.post("/:id", askQuestion);
+
+
 
 module.exports=router;
