@@ -1,6 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { chatData } from "../data/chatData";
 function NewChat() {
+    const [question, setQuestion] = useState("");
+    const handleQuestion = () => {
+        setQuestion();
+    }
     return (
         <div className="newchat">
             <div>

@@ -2,11 +2,11 @@ import React,{useState} from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import {Link} from "react-router-dom";
-import {loggedInData} from "../data/SidebarData";
+import {SidebarData} from "../data/SidebarData";
 import {IconContext} from "react-icons";
 
 
-function Navbar () {
+function NavbarLoggedOut () {
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
     return (
@@ -24,7 +24,7 @@ function Navbar () {
                             <AiIcons.AiOutlineClose/>
                         </Link>
                     </li>
-                        {loggedInData.map((item,index)=> {
+                        {SidebarData.map((item,index)=> {
                             return (
                                 <li key={index} className={item.cName}>
                                     <Link to={item.path}>
@@ -41,4 +41,4 @@ function Navbar () {
     )
 }
 
-export default Navbar;
+export default NavbarLoggedOut;
