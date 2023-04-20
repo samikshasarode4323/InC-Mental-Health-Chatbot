@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {createContext, useReducer} from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from "./components/Navbar";
@@ -22,7 +22,6 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/newchatpage' element={<NewChatPage />} /> 
         <Route path='/newchat' element={<NewChat />} /> 
-        <Route path='/newchat/:id' element={<NewChat />} /> 
         <Route path='/login' element={<Login />} />
         <Route path='/chathistory' element={<ChatHistory />} />
         <Route path='/logout' element={<Logout />} />

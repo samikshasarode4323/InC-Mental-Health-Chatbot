@@ -5,7 +5,6 @@ import axios from "axios";
 
 
 function NewChatPage() {
-    const [id,setId] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
     const navigate = useNavigate();
     const handleSubmit = () => {
@@ -18,11 +17,6 @@ function NewChatPage() {
             })
         })
         setIsSubmitted(true);
-        // navigate("/newchat",{
-        //     state: {
-        //         id:
-        //     }
-        //   });
     }
     return (
         <div className="newchatpage">

@@ -12,16 +12,11 @@ function ChatHistory() {
         axios.get("http://localhost:5000/chat")
             .then((res) => {
                 setList(res.data)
-                console.log("Api response :" + res.data)
-                console.log(list)
             }).catch((err) => {
                 console.log(err);
             })
     }
 
-    function addItem(current) {
-        setList(current)
-    }
 
     return (
         <div className="chathistory">
