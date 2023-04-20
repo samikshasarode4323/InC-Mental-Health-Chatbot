@@ -89,7 +89,7 @@ span {
 .newchat::before,.home::before, .app::before, .chathistory::before, .newchatpage::before{
     content: '';
     background: url('https://static.vecteezy.com/system/resources/previews/004/928/056/original/mental-health-awareness-with-meditation-background-free-vector.jpg') 
-         center center/cover;
+         center center/cover fixed;
     position: absolute;
     opacity: 0.4;
     top: 0px;
@@ -191,7 +191,7 @@ textarea {
     margin-bottom: 1%;
     padding-right:30px ;
     margin-left: 60%;
-    border-radius: 50px;
+    border-radius: 70px;
   }
   .question{
     background-color: #8bc3ff9c;
@@ -199,7 +199,7 @@ textarea {
     margin-bottom: 1%;
     padding-left:30px ;
     margin-right: 60%;
-    border-radius: 50px;
+    border-radius: 70px;
   }
 
   .home{
