@@ -6,14 +6,34 @@
     padding: 0;
     font-family: 'Lato', sans-serif;
 }
-.newchat, .chathistory{
+.newchat, .chathistory, .newchatpage, .app, .home{
     display:flex;
     align-content: center;
     justify-content: center;
     flex-direction: column;
     margin: 10px;
+    
+    overflow: auto;
+    background: url('https://static.vecteezy.com/system/resources/previews/004/928/056/original/mental-health-awareness-with-meditation-background-free-vector.jpg'); 
+    background-repeat:   repeat; 
+    background-position:  center/cover;
+    background-attachment: fixed; 
+    background-size: cover;
+    min-height: 100%;
 }
 
+.newchatpage{
+    justify-content: start;
+    height: 1000px;
+}
+.home{
+  justify-content: start;
+  height:800px;
+}
+.newchat{
+  justify-content: start;
+  height:1000px;
+}
 .navbar {
     background-color: #060b26;
     height: 80px;
@@ -86,10 +106,9 @@
 span {
     margin-left: 16px;
 }
-.newchat::before,.home::before, .app::before, .chathistory::before, .newchatpage::before{
+/* .newchat::before,.home::before, .app::before, .chathistory::before, .newchatpage::before{
     content: '';
-    background: url('https://static.vecteezy.com/system/resources/previews/004/928/056/original/mental-health-awareness-with-meditation-background-free-vector.jpg') 
-         center center/cover fixed;
+    
     position: absolute;
     opacity: 0.4;
     top: 0px;
@@ -97,7 +116,7 @@ span {
     width: 100vw;
     height: 100vh;
     z-index: -1;
-}
+} */
 .Input{
     display:flex;
     align-content: center;
@@ -187,19 +206,19 @@ textarea {
     background-color: #31bb4c;
     display: flex;
     justify-content: end;
+    padding: 1%;
     margin-top: 1%;
     margin-bottom: 1%;
-    padding-right:30px ;
     margin-left: 60%;
-    border-radius: 70px;
+    border-radius: 25px;
   }
   .question{
     background-color: #8bc3ff9c;
     margin-top: 1%;
     margin-bottom: 1%;
-    padding-left:30px ;
+    padding:1% ;
     margin-right: 60%;
-    border-radius: 70px;
+    border-radius: 25px;
   }
 
   .home{

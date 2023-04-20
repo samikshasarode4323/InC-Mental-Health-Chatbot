@@ -30,14 +30,8 @@ export const loggedInData = [
         cName: 'nav-text'
     },
     {
-        title: 'New Chat Page',
+        title: 'Create New Chat ',
         path: '/newchatpage',
-        icon: <BsIcons.BsFillChatDotsFill />,
-        cName: 'nav-text'
-    },
-    {
-        title: 'New Chat',
-        path: '/newchat',
         icon: <BsIcons.BsFillChatDotsFill />,
         cName: 'nav-text'
     },

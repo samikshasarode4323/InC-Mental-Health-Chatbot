@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
@@ -8,11 +8,11 @@ function NewChatPage() {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const navigate = useNavigate();
     const handleSubmit = () => {
-        axios.post("http://localhost:5000/chat/new").then(newData =>{
-            
-            navigate('/newchat',{
-                state:{
-                    key:newData.data._id
+        axios.post("http://localhost:5000/chat/new").then(newData => {
+
+            navigate('/newchat', {
+                state: {
+                    key: newData.data._id
                 }
             })
         })
@@ -21,11 +21,13 @@ function NewChatPage() {
     return (
         <div className="newchatpage">
             <div>
+                <div>
                     <b><h1 align="center" className="newchat-h1">Open New Chat Page</h1></b>
-            </div>
-            <div className="Input">
-                <div className="center1">
-                    <input type="button" value="Open New Chat" onClick={handleSubmit} className="btn btn-primary" />
+                </div>
+                <div className="Input">
+                    <div className="center1">
+                        <input type="button" value="Open New Chat" onClick={handleSubmit} className="btn btn-primary" />
+                    </div>
                 </div>
             </div>
         </div>
