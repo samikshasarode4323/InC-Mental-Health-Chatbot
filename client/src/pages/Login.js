@@ -30,7 +30,7 @@ function Login() {
           } else {
             dispatch({type:"USER", payload:true})
             setIsSubmitted(true);
-            navigate("/newchat");
+            navigate("/newchatpage");
           }
         } else {
           // Username not found
