@@ -1,17 +1,40 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios"
+
+var id;
 
 function NewChat() {
     const [question, setQuestion] = useState("");
     const [data, setData] = useState([]);
+    useEffect(()=>{
+        retrieveList()
+  }, []
+    )
 
+    async function  retrieveList() {
+        const response=await axios.post("http://localhost:5000/chat/new")
+        console.log(response.data._id)
+        console.log("http://localhost:5000/chat/"+id)
+        // axios.get("http://localhost:5000/chat/"+id)
+        //   .then((res) => {
+        //     let current = [];
+        //     res.data.chat.map(item => {
+        //       current.push(item)
+        //     })
+        //     addData(current)
+        //   }).catch((err) => {
+        //     console.log(err);
+        //   })
+      }
+      function addData(current) {
+        setData(current)
+      }
     const handleQuestion = () => {
 
-        axios.post("http://localhost:5000/chat/new",{
+        axios.post("http://localhost:5000/chat/"+id,{
             question:question
-        }).
-        then(newData => axios.get("http://localhost:5000/chat/"+newData.data._id).then((res)=>console.log(res.data)));
-        console.log(data)
+        })
+        window.location.reload()
         setQuestion("");
     }
     return (

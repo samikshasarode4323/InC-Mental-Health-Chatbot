@@ -69,27 +69,11 @@ exports.getChat =async (req, res) => {
   
 
 
-exports.askFirstQuestion = async (req, res) => {
+exports.createChat = async (req, res) => {
   try {
-    const { question } = req.body;
-    console.log(`${prompt} \nHuman: ${question}\npsychatrist: `)
-    const response = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: `${prompt} \nHuman: ${question}\npsychatrist:`,
-      max_tokens: 64,
-      temperature: 0,
-      top_p: 1.0,
-      frequency_penalty: 0.0,
-      presence_penalty: 0.0,
-      stop: ["\n"],
-    });
-    console.log(response.data.choices[0].text)
     const newChat = new chat({
       chat: [
-        {
-          question: req.body.question,
-          answer: response.data.choices[0].text
-        }
+        
       ]
     })
     newChat.save()
