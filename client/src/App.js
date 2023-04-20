@@ -22,6 +22,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/newchatpage' element={<NewChatPage />} /> 
         <Route path='/newchat' element={<NewChat />} /> 
+        <Route path='/newchat/:id' element={<NewChat />} /> 
         <Route path='/login' element={<Login />} />
         <Route path='/chathistory' element={<ChatHistory />} />
         <Route path='/logout' element={<Logout />} />

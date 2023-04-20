@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import axios from "axios"
 function ChatHistory() {
     const [list, setList] = useState([]);
@@ -30,22 +30,29 @@ function ChatHistory() {
                 <br></br>
 
             </div>
-            {list.map((item)=>{
-                return(<ChatTile date={item.date}/>)
+            {list.map((item) => {
+                return (<ChatTile date={item.date} id={item._id} />)
             })}
         </div>
     )
 }
 
 function ChatTile(props) {
+    const navigate = useNavigate();
+    function gotoChat(){
+        navigate('/newchat',{
+            state:{
+                key:props.id
+            }
+        })
+    }
     return (
-    <div className="combined">
-        <h2 className="combined-h2"> Chat on {props.date} </h2>
-        <Link to={"/newchat"}>
+        <div className="combined">
+            <h2 className="combined-h2"> Chat on {props.date} </h2>
             <div className="button-container">
-                <input type="submit" value="Open Chat" />
+                <input type="submit" value="Open Chat" onClick={gotoChat}/>
             </div>
-        </Link>
-    </div>)
+
+        </div>)
 }
 export default ChatHistory;
