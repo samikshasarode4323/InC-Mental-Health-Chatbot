@@ -2,6 +2,7 @@ require('dotenv').config()
 const { Configuration, OpenAIApi } = require("openai");
 const express=require('express')
 const bodyParser=require('body-parser')
+const axios=require('axios')
 
 const chat = require('../model/chatModel')
 
@@ -24,10 +25,13 @@ exports.askQuestion = async (req, res) => {
     }
 
     const { question } = req.body;
+    axios.get('http://localhost:9000/emotiondetector/'+question).then((response)=>{console.log(response.data)}).catch((err)=>{
+      console.log(err.message)
+    })
     console.log(req.params.id)
     const cht1=await chat.findById(req.params.id)
     chatToString(cht1.chat)
-    console.log(`${prompt} \nHuman: ${question}\npsychatrist: `)
+    // console.log(`${prompt} \nHuman: ${question}\npsychatrist: `)
     const response = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: `${prompt} \nHuman: ${question}\npsychatrist:`,
