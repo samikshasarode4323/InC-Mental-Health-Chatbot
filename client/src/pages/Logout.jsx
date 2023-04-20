@@ -1,10 +1,11 @@
-import React from "react";
-import loggedin from "../components/Navbar";
+import React, {useContext} from "react";
 import {useNavigate} from "react-router-dom";
+import {UserContext} from "../App";
 
 function Logout() {
+    const {state, dispatch} = useContext(UserContext);
     const navigate = useNavigate();
-    loggedin=false;
+    dispatch({type:"USER", payload:false})
     navigate("/");
 }
 
