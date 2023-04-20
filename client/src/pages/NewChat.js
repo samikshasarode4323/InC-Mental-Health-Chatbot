@@ -7,30 +7,33 @@ function NewChat() {
     const [question, setQuestion] = useState("");
     const [data, setData] = useState([]);
     useEffect(()=>{
+        
         retrieveList()
   }, []
     )
 
     async function  retrieveList() {
-        const response=await axios.post("http://localhost:5000/chat/new")
-        console.log(response.data._id)
+        // const response=await axios.post("http://localhost:5000/chat/new")
+        // console.log(response.data._id)
+        id='643fc0729506e2e18acdd42a'
         console.log("http://localhost:5000/chat/"+id)
-        // axios.get("http://localhost:5000/chat/"+id)
-        //   .then((res) => {
-        //     let current = [];
-        //     res.data.chat.map(item => {
-        //       current.push(item)
-        //     })
-        //     addData(current)
-        //   }).catch((err) => {
-        //     console.log(err);
-        //   })
+        axios.get("http://localhost:5000/chat/"+id)
+          .then((res) => {
+            let current = [];
+            res.data.chat.map(item => {
+              current.push(item)
+            })
+            addData(current)
+            console.log("object getting successfully")
+          }).catch((err) => {
+            console.log(err);
+          })
       }
       function addData(current) {
         setData(current)
       }
     const handleQuestion = () => {
-
+        console.log(id)
         axios.post("http://localhost:5000/chat/"+id,{
             question:question
         })

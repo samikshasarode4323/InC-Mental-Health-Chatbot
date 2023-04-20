@@ -89,7 +89,7 @@ span {
 .newchat::before,.home::before, .app::before, .chathistory::before, .newchatpage::before{
     content: '';
     background: url('https://static.vecteezy.com/system/resources/previews/004/928/056/original/mental-health-awareness-with-meditation-background-free-vector.jpg') 
-        no-repeat center center/cover;
+         center center/cover;
     position: absolute;
     opacity: 0.4;
     top: 0px;
@@ -226,6 +226,10 @@ textarea {
 .combined {
   display: flex;
   background-color: white;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding-right: 2%;
+  border-radius: 40px;
 }
 
 .combined-h2 {
