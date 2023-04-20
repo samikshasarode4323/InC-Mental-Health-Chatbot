@@ -3,6 +3,7 @@ import {createContext, useReducer} from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import NewChatPage from "./pages/NewChatPage";
 import NewChat from "./pages/NewChat";
 import Login from "./pages/Login";
 import ChatHistory from "./pages/ChatHistory";
@@ -19,6 +20,7 @@ function App() {
     <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/newchatpage' element={<NewChatPage />} /> 
         <Route path='/newchat' element={<NewChat />} /> 
         <Route path='/login' element={<Login />} />
         <Route path='/chathistory' element={<ChatHistory />} />
