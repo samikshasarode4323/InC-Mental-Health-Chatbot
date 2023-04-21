@@ -4,6 +4,7 @@ import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 import * as BsIcons from "react-icons/bs";
 import * as MdIcons from "react-icons/md";
+import * as RiIcons from "react-icons/ri";
 
 export const SidebarData = [
     {
@@ -38,7 +39,7 @@ export const loggedInData = [
     {
         title: 'Chat History',
         path: '/chathistory',
-        icon: <BsIcons.BsFillChatDotsFill />,
+        icon: <RiIcons.RiChatHistoryLine />,
         cName: 'nav-text'
     },
     {

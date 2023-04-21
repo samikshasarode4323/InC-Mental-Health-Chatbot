@@ -3,7 +3,7 @@ import React from "react";
 function Home() {
     return (
         <div className="home">
-            <h1 align="center" className="health">Mental Health Chatbot</h1>
+            <h1 align="center" className="health"><b>Peaceful Pal</b></h1>
             <img src={"https://static.wixstatic.com/media/3eee0b_4b35343d765945a5b8f2e3f9f8589dea~mv2.gif"}
                 alt="Chatbot" height={200} className="center"></img>
                 <br></br>
