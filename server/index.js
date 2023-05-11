@@ -13,9 +13,11 @@ app.use(bodyParser.json())
 app.use(cors());
 
 const chatRouter=require('./routes/chatRoutes')
+const userRouter=require("./routes/userRoutes")
 
 app.get('/', (req, res) => res.send('Hello World!'))
 app.use('/chat',chatRouter)
+app.use('/user',userRouter)
 
 mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }) 
     .catch(err => { console.log(err) })

@@ -11,7 +11,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-let prompt = "The following is a conversation with a psychatrist. \n"
+let prompt = "The following is a conversation with a friend. \n"
 
 
 
@@ -20,7 +20,7 @@ exports.askQuestion = async (req, res) => {
 
     function chatToString(arr){
       arr.map((item) => {
-        prompt += "\nHuman:" + item.question + "\npshycatrist:" + item.answer;
+        prompt += "\nHuman:" + item.question + "\nfriend:" + item.answer;
       });
     }
 
@@ -34,7 +34,7 @@ exports.askQuestion = async (req, res) => {
     // console.log(`${prompt} \nHuman: ${question}\npsychatrist: `)
     const response = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: `${prompt} \nHuman: ${question}\npsychatrist:`,
+      prompt: `${prompt} \nHuman: ${question}\nfriend:`,
       max_tokens: 64,
       temperature: 0,
       top_p: 1.0,
