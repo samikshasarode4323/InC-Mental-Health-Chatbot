@@ -1,7 +1,9 @@
+require("dotenv").config()
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const asyncHandler = require("express-async-handler")
 const User = require('../model/userModel');
+
 
 exports.register = asyncHandler(async (req, res) => {
     const { name, email, password } = req.body;
@@ -29,9 +31,37 @@ exports.register = asyncHandler(async (req, res) => {
         password:hashedPass
     })
     user.save()
-    return res.status(200).json(user);
+    if(user){
+        return res.status(200).json({
+            name:user.name,
+            email:user.email,
+            token:generateToken(user._id)
+        });
+    }
 })
 
-exports.login = (req, res) => {
+exports.login = asyncHandler(async (req, res) => {
+    const {email,password}=req.body;
+    const user=await User.findOne({email})
+    if(user && await bcrypt.compare(password,user.password)){
+        return res.status(200).json({
+            _id: user.id,
+            name: user.name,
+            email: user.email,
+            token:generateToken(user._id)
+        })
+    }else{
+        res.status(400)
+        throw new error("Invalid credentials");
+    }
+})
 
-}
+exports.getMe = asyncHandler(async (req, res) => {
+    res.status(200).json(req.user)
+  })
+
+const generateToken = (id) => {
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
+      expiresIn: '30d',
+    })
+  }
