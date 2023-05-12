@@ -11,36 +11,38 @@ Suggestions for mental health resources
 Support for multiple languages
 
 ## Installation
-### Clone this repository:
+1). Clone this repository:
 
-  git clone https://github.com/varadpundlik/InC-Mental-Health-Chatbot.git
-Install the required packages for both server and client:
+    git clone https://github.com/varadpundlik/InC-Mental-Health-Chatbot.git
+
+2). Install the required packages for both server and client:
 
 
-  cd InC-Mental-Health-Chatbot/server
-  npm install
+    cd InC-Mental-Health-Chatbot/server
+    npm install
 
-  cd ../client
-  npm install
-Set up a MongoDB database by following the MongoDB documentation.
+    cd ../client
+    npm install
 
-Add your MongoDB database URL to the .env file in the server directory.
+3). Set up a MongoDB database by following the MongoDB documentation.
+
+4). Add your MongoDB database URL to the .env file in the server directory.
 
 ### Run the server:
 
 
-  cd ../server
-  npm start
+    cd ../server
+    node app.js
 ### Run the client:
 
 
-  cd ../client
-  npm start
+    cd ../client
+    npm start
 Access the app in your web browser at http://localhost:3000.
 
-Contributing
+## Contributing
 Contributions are welcome! If you have a suggestion or would like to report a bug, please open an issue. If you would like to contribute code, please fork the repository and submit a pull request.
 
-Credits
+## Credits
 This project was created by Varad Pundlik and is based on the MERN stack.
 
